@@ -1,1 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroForte - Futuro Sustentável</title>
+    <style>
+        /* RESET E CONFIGURAÇÕES GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
 
+        :root {
+            --verde-escuro: #1A4329;
+            --verde-claro: #2E7D32;
+            --laranja-destaque: #E65100;
+            --cinza-fundo: #F4F6F4;
+            --texto-escuro: #2C3E50;
+            --branco: #FFFFFF;
+        }
+
+        body {
+            color: var(--texto-escuro);
+            background-color: var(--branco);
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO E NAVEGAÇÃO */
+        header {
+            background-color: var(--verde-escuro);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: var(--branco);
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #81C784;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+
+        .nav-menu a:hover {
+            color: #81C784;
+        }
+
+        /* BANNER PRINCIPAL (HERO) */
+        .hero {
+            background: linear-gradient(rgba(26, 67, 41, 0.6), rgba(26, 67, 41, 0.85)), 
+                        url('https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--branco);
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-interativo {
+            background-color: var(--laranja-destaque);
+            color: var(--branco);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn-interativo:hover {
+            background-color: #BF360C;
+            transform: scale(1.05);
+        }
+
+        /* ESTILIZAÇÃO DAS SEÇÕES */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bg-alterado {
+            background-color: var(--cinza-fundo);
+            max-width: 100%;
+            padding-left: calc((100% - 1200px)/2 + 20px);
+            padding-right: calc((100% - 1200px)/2 + 20px);
+        }
+
+        section h2 {
+            font-size: 32px;
+            color: var(--verde-escuro);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--laranja-destaque);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* CARDS E GRIDS */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--branco);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--verde-claro);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 15px;
+        }
+
+        .destaque-dado {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--laranja-destaque);
+            margin-bottom: 10px;
+        }
+
+        /* ALERTAS DE DESAFIOS */
+        .card-alerta {
+            border-top: 5px solid #C62828;
+        }
+        
+        .card-alerta h3 {
+            color: #C62828;
+        }
+
+        /* FORMULÁRIO DE CONTATO */
+        .contato-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--cinza-fundo);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #CCC;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--verde-claro);
+        }
+
+        .mensagem-final {
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            color: var(--verde-escuro);
+            font-weight: 500;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background-color: var(--verde-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .hero-content p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Agro<span>Forte</span></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#producao">Produção</a></li>
+                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                    <li><a href="#desafios">Desafios</a></li>
+                    <li><a href="#futuro">Futuro</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero" style="max-width: 100%; margin-top: 0; padding: 0;">
+        <div class="hero-content">
+            <h1>Agro forte, futuro sustentável</h1>
+            <p>Conheça o equilíbrio essencial entre a alta produtividade tecnológica e a preservação do meio ambiente.</p>
+            <a href="#producao" class="btn-interativo">Começar a Explorar</a>
+        </div>
+    </section>
+
+    <section id="producao">
+        <h2>Seção 1 – Produção Agrícola</h2>
+        <div class="grid-3">
+            <div class="card">
+                <div class="destaque-dado">+25%</div>
+                <h3>Dados sobre Crescimento</h3>
+                <p>A produção no campo cresce de forma vertical, otimizando áreas já existentes para alimentar uma população global em constante expansão.</p>
+            </div>
+            <div class="card">
+                <div class="destaque-dado">PIB</div>
+                <h3>Importância Econômica</h3>
+                <p>O agronegócio é um dos pilares da economia, gerando emprego para milhões de pessoas e equilibrando a balança comercial através de exportações.</p>
+            </div>
+            <div class="card">
+                <div class="destaque-dado">GPS</div>
+                <h3>Tecnologias Utilizadas</h3>
+                <p>Uso inteligente de maquinários autônomos, sistemas guiados por satélite e mapeamento detalhado da terra para evitar desperdícios.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sustentabilidade" class="bg-alterado">
+        <h2>Seção 2 – Sustentabilidade</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Práticas Ecológicas</h3>
+                <p>Implementação da rotação de culturas e sistemas integrados que quebram o ciclo de pragas e enriquecem a biodiversidade natural da fazenda.</p>
+            </div>
+            <div class="card">
+                <h3>Conservação do Solo</h3>
+                <p>O Sistema de Plantio Direto mantém a palhada na terra, reduzindo drasticamente a erosão, preservando a umidade e estocando carbono.</p>
+            </div>
+            <div class="card">
+                <h3>Energias Limpas</h3>
+                <p>Aproveitamento de matrizes de energia solar fotovoltaica e biogás gerado a partir de resíduos orgânicos para mover as operações rurais.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="desafios">
+        <h2>Seção 3 – Desafios Ambientais</h2>
+        <div class="grid-3">
+            <div class="card card-alerta">
+                <h3>Problemas Atuais</h3>
+                <p>O desmatamento ilegal, a exploração excessiva de fontes de água doce e as emissões severas de carbono ameaçam o futuro da estabilidade climática.</p>
+            </div>
+            <div class="card card-alerta">
+                <h3>Consequências</h3>
+                <p>Eventos climáticos extremos — como secas prolongadas e quebras constantes de safra — castigam diretamente o bolso do produtor e o ecossistema.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="futuro" class="bg-alterado">
+        <h2>Seção 4 – Soluções e Futuro</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Inovações</h3>
+                <p>Drones agrícolas que monitoram a saúde das folhas em tempo real e fazem aplicação cirúrgica e localizada de insumos necessários.</p>
+            </div>
+            <div class="card">
+                <h3>Agricultura Regenerativa</h3>
+                <p>A recuperação intencional de solos degradados foca na vida microscópica da terra, trazendo de volta a fertilidade natural sem excesso de químicos.</p>
+            </div>
+            <div class="card">
+                <h3>Papel da Tecnologia</h3>
+                <p>A irrigação inteligente automatizada e conectada à internet (IoT) só libera água quando os sensores de umidade apontam real necessidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Seção 5 – Faça sua Parte</h2>
+        <div class="contato-wrapper">
+            <form id="formAgro">
+                <div class="form-group">
+                    <label for="nome">Como podemos te chamar?</label>
+                    <input type="text" id="nome" required placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">Seu melhor e-mail:</label>
+                    <input type="email" id="email" required placeholder="exemplo@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="perfil">Seu Perfil:</label>
+                    <select id="perfil">
+                        <option value="estudante">Estudante / Curioso</option>
+                        <option value="produtor">Produtor Rural</option>
+                        <option value="profissional">Profissional do Setor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Dúvida ou Sugestão:</label>
+                    <textarea id="mensagem" placeholder="Deixe sua mensagem sobre sustentabilidade..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar e Apoiar a Causa</button>
+            </form>
+            <p class="mensagem-final">"Garantir o alimento de hoje respeitando a Terra que cultivará o amanhã."</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AgroForte - Projeto Educativo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('formAgro').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            alert('Obrigado pelo contato, ' + nome + '! Juntos construímos um agronegócio mais forte e consciente.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
