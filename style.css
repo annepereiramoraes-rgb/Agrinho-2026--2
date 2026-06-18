@@ -1,3 +1,6 @@
+/* ==========================================================================
+   CÓDIGO CSS (DESIGN COMPLETO)
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -28,6 +31,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
@@ -68,7 +72,7 @@ header {
 
 .hero {
     background: linear-gradient(rgba(10, 47, 29, 0.7), rgba(10, 47, 29, 0.9)), url('https://images.unsplash.com/photo-1592982537447-7440771109a3?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-    height: 75vh;
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,8 +81,8 @@ header {
     padding: 0 20px;
 }
 
-.hero-content h1 { font-size: 52px; margin-bottom: 20px; text-transform: uppercase; font-weight: 900; }
-.hero-content p { font-size: 22px; margin-bottom: 35px; max-width: 800px; margin: 0 auto 35px; }
+.hero-content h1 { font-size: 46px; margin-bottom: 20px; text-transform: uppercase; font-weight: 900; }
+.hero-content p { font-size: 20px; margin-bottom: 35px; max-width: 800px; margin: 0 auto 35px; }
 
 .btn-interativo {
     background-color: var(--laranja);
@@ -95,8 +99,9 @@ header {
 
 .btn-interativo:hover { background-color: #A33313; transform: translateY(-2px); }
 
-.secao-padrao { padding: 90px 20px; max-width: 1200px; margin: 0 auto; }
-.subtitulo-secao { text-align: center; margin-top: -30px; margin-bottom: 50px; color: #666; font-size: 18px; }
+.secao-padrao { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+.subtitulo-secao { text-align: center; margin-top: -20px; margin-bottom: 50px; color: #666; font-size: 17px; }
+ 
 .bg-alternativo {
     background-color: var(--fundo-claro);
     max-width: 100%;
@@ -104,13 +109,13 @@ header {
     padding-right: calc((100% - 1200px)/2 + 20px);
 }
 
-.secao-padrao h2 { font-size: 36px; color: var(--verde-primario); text-align: center; margin-bottom: 45px; font-weight: 800; }
+.secao-padrao h2 { font-size: 32px; color: var(--verde-primario); text-align: center; margin-bottom: 45px; font-weight: 800; text-transform: uppercase; }
 
-.grid-conteudo { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+.grid-conteudo { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
 .card {
     background: var(--branco);
-    padding: 35px;
+    padding: 30px;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.04);
     border-left: 6px solid var(--verde-secundario);
@@ -118,30 +123,30 @@ header {
 }
 
 .card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
-.card h3 { color: var(--verde-primario); margin-bottom: 15px; font-size: 22px; }
-.destaque-dado { font-size: 42px; font-weight: 900; color: var(--laranja); margin-bottom: 10px; }
+.card h3 { color: var(--verde-primario); margin-bottom: 15px; font-size: 20px; }
+.destaque-dado { font-size: 38px; font-weight: 900; color: var(--laranja); margin-bottom: 10px; }
+ 
 .card-alerta { border-left-color: #D32F2F; }
 .card-alerta h3 { color: #D32F2F; }
 
-/* CALCULADORA E QUIZ PAINEL */
 .painel-interativo {
     background: var(--branco);
     max-width: 750px;
     margin: 0 auto;
-    padding: 45px;
+    padding: 40px;
     border-radius: 16px;
     box-shadow: 0 10px 35px rgba(0,0,0,0.06);
 }
 
-.form-group { margin-bottom: 25px; }
-.form-group label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--verde-primario); }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 700; color: var(--verde-primario); }
 .form-group input, .form-group select, .form-group textarea {
-    width: 100%; padding: 14px; border: 2px solid #E2E8F0; border-radius: 6px; font-size: 16px;
+    width: 100%; padding: 12px; border: 2px solid #E2E8F0; border-radius: 6px; font-size: 16px;
 }
 .form-group input:focus, .form-group select:focus { border-color: var(--verde-secundario); outline: none; }
 
 .resultado-box {
-    margin-top: 35px;
+    margin-top: 30px;
     padding: 25px;
     background: #E8F5E9;
     border-radius: 8px;
@@ -152,34 +157,13 @@ header {
 
 .hidden { display: none !important; }
 
-/* ESTILOS DO QUIZ */
-.opcoes-container { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; }
+.opcoes-container { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
 .btn-opcao {
     background-color: var(--fundo-claro);
     border: 2px solid #CBD5E1;
-    padding: 15px 20px;
+    padding: 14px 20px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
     text-align: left;
-    font-weight: 600;
-    transition: 0.2s;
-}
-.btn-opcao:hover { background-color: #E2E8F0; border-color: #94A3B8; }
-
-.contato-wrapper { max-width: 700px; margin: 0 auto; }
-.btn-submit {
-    width: 100%; background-color: var(--verde-primario); color: var(--branco);
-    padding: 16px; border: none; border-radius: 6px; font-size: 16px; font-weight: 700; cursor: pointer; transition: 0.3s;
-}
-.btn-submit:hover { background-color: var(--verde-secundario); }
-.mensagem-final { text-align: center; margin-top: 35px; font-style: italic; color: var(--verde-secundario); font-weight: 700; }
-
-footer { background-color: var(--verde-primario); color: var(--branco); text-align: center; padding: 30px; font-size: 14px; }
-
-@media (max-width: 768px) {
-    .nav-container { flex-direction: column; gap: 15px; }
-    .nav-menu { flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .hero-content h1 { font-size: 34px; }
-    .painel-interativo { padding: 25px; }
 }
