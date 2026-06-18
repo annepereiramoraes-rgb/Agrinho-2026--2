@@ -1,1 +1,100 @@
+/* ==========================================================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth; /* Faz o deslize suave ao clicar no menu */
+}
 
+:root {
+    --verde-escuro: #1A4329;
+    --verde-claro: #2E7D32;
+    --laranja-destaque: #E65100;
+    --cinza-fundo: #F4F6F4;
+    --texto-escuro: #2C3E50;
+    --branco: #FFFFFF;
+    --alerta-vermelho: #C62828;
+}
+
+body {
+    color: var(--texto-escuro);
+    background-color: var(--branco);
+    line-height: 1.6;
+    padding-top: 70px; /* Evita que o topo da página suma atrás do menu fixo */
+}
+
+/* ==========================================================================
+   CABECALHO E NAVEGAÇÃO (FIXO NO TOPO)
+   ========================================================================== */
+header {
+    background-color: var(--verde-escuro);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    color: var(--branco);
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #81C784;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-menu a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 15px;
+}
+
+.nav-menu a:hover {
+    color: #81C784;
+}
+
+/* ==========================================================================
+   BANNER PRINCIPAL (HERO)
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(26, 67, 41, 0.6), rgba(26, 67, 41, 0.85)), 
+                url('https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--branco);
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0
