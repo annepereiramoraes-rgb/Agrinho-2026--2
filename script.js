@@ -1,115 +1,36 @@
 // ==========================================================================
-// CONFIGURAÇÃO DA CALCULADORA DE IMPACTO AMBIENTAL
+// CÓDIGO JAVASCRIPT (LÓGICA DA CALCULADORA INTERATIVA)
 // ==========================================================================
-function calcularImpacto() {
-    const hectares = parseFloat(document.getElementById('hectares').value);
-    const cultura = document.getElementById('cultura').value;
-    const resultadoBox = document.getElementById('resultado-calculo');
 
-    if (isNaN(hectares) || hectares <= 0) {
-        alert('Por favor, insira um número válido de hectares.');
+document.getElementById('form-calculadora').addEventListener('submit', function(event) {
+    event.preventDefault(); // Impede a página de recarregar
+
+    // Coleta os valores do formulário
+    const cultura = document.getElementById('cultura').value;
+    const hectares = parseFloat(document.getElementById('hectares').value);
+    
+    const resultadoBox = document.getElementById('resultado');
+    const txtResultado = document.getElementById('txt-resultado');
+
+    if (!cultura || isNaN(hectares) || hectares <= 0) {
+        alert('Por favor, preencha todos os campos corretamente.');
         return;
     }
 
-    let multiplicadorAgua = cultura === 'graos' ? 450000 : 600000; 
-    let multiplicadorCarbono = cultura === 'graos' ? 220 : 310;
-    let multiplicadorCusto = cultura === 'graos' ? 1200 : 1800;
+    let recomendacaoAdubo = 0;
+    let recomendacaoAgua = 0;
 
-    // Cálculos matemáticos simulação
-    const aguaEconomizada = hectares * multiplicadorAgua;
-    const carbonoEvitado = hectares * multiplicadorCarbono;
-    const custoReduzido = hectares * multiplicadorCusto;
+    // Lógica básica de cálculo baseada na cultura escolhida
+    if (cultura === 'soja') {
+        recomendacaoAdubo = hectares * 250; // Exemplo: 250kg por hectare
+        recomendacaoAgua = hectares * 4500;  // Exemplo: 4500L por hectare
+        txtResultado.innerHTML = `Para sua plantação de <strong>Soja</strong> em uma área de <strong>${hectares} ha</strong>, a estimativa recomendada é de <strong>${recomendacaoAdubo.toLocaleString('pt-BR')} kg</strong> de adubo NPK e um volume de irrigação monitorada de aproximadamente <strong>${recomendacaoAgua.toLocaleString('pt-BR')} Litros</strong> por ciclo.`;
+    } else if (cultura === 'milho') {
+        recomendacaoAdubo = hectares * 300; // Exemplo: 300kg por hectare
+        recomendacaoAgua = hectares * 5500;  // Exemplo: 5500L por hectare
+        txtResultado.innerHTML = `Para sua plantação de <strong>Milho</strong> em uma área de <strong>${hectares} ha</strong>, a estimativa recomendada é de <strong>${recomendacaoAdubo.toLocaleString('pt-BR')} kg</strong> de adubo NPK e um volume de irrigação monitorada de aproximadamente <strong>${recomendacaoAgua.toLocaleString('pt-BR')} Litros</strong> por ciclo.`;
+    }
 
-    // Injeta os dados formatados no HTML
-    document.getElementById('res-agua').innerText = aguaEconomizada.toLocaleString('pt-BR');
-    document.getElementById('res-carbono').innerText = carbonoEvitado.toLocaleString('pt-BR');
-    document.getElementById('res-custo').innerText = custoReduzido.toLocaleString('pt-BR');
-
-    // Revela a caixa com os resultados removendo a classe 'hidden'
+    // Exibe a caixa de resultado removendo a classe utilitária 'hidden'
     resultadoBox.classList.remove('hidden');
-}
-
-// ==========================================================================
-// CONFIGURAÇÃO DO QUIZ INTERATIVO
-// ==========================================================================
-const bancoPerguntas = [
-    {
-        pergunta: "Qual dessas técnicas evita a aragem mecânica e reduz as emissões de CO2 no solo?",
-        opcoes: ["Irrigação por Pivô", "Plantio Direto", "Monocultura intensiva", "Desmatamento planejado"],
-        correta: 1
-    },
-    {
-        pergunta: "O que significa a sigla ILPF no agronegócio moderno?",
-        opcoes: ["Irrigação de Lavoura por Pressão Fixa", "Índice de Lucro de Pastagem Forte", "Integração Lavoura-Pecuária-Floresta", "Indústria de Logística Produtiva de Frutas"],
-        correta: 2
-    },
-    {
-        pergunta: "Qual gás de efeito estufa altamente poluente é evitado controlando os fertilizantes nitrogenados?",
-        opcoes: ["Óxido Nitroso (N₂O)", "Oxigênio (O₂)", "Hélio (He)", "Metano residual puro"],
-        correta: 0
-    }
-];
-
-let indiceAtual = 0;
-let pontuacao = 0;
-
-function carregarPergunta() {
-    const perguntaAtual = bancoPerguntas[indiceAtual];
-    const perguntaTexto = document.getElementById('quiz-pergunta');
-    const opcoesContainer = document.getElementById('quiz-opcoes');
-
-    perguntaTexto.innerText = perguntaAtual.pergunta;
-    opcoesContainer.innerHTML = '';
-
-    perguntaAtual.opcoes.forEach((opcao, id) => {
-        const botao = document.createElement('button');
-        botao.innerText = opcao;
-        botao.classList.add('btn-opcao');
-        botao.onclick = () => verificarResposta(id);
-        opcoesContainer.appendChild(botao);
-    });
-}
-
-function verificarResposta(opcaoSelecionada) {
-    if (opcaoSelecionada === bancoPerguntas[indiceAtual].correta) {
-        pontuacao++;
-    }
-
-    indiceAtual++;
-
-    if (indiceAtual < bancoPerguntas.length) {
-        carregarPergunta();
-    } else {
-        mostrarResultadoQuiz();
-    }
-}
-
-function mostrarResultadoQuiz() {
-    document.getElementById('pergunta-bloco').classList.add('hidden');
-    const resultadoBox = document.getElementById('quiz-resultado');
-    resultadoBox.classList.remove('hidden');
-    document.getElementById('quiz-placar').innerText = `Você acertou ${pontuacao} de ${bancoPerguntas.length} perguntas.`;
-}
-
-function reiniciarQuiz() {
-    indiceAtual = 0;
-    pontuacao = 0;
-    document.getElementById('quiz-resultado').classList.add('hidden');
-    document.getElementById('pergunta-bloco').classList.remove('hidden');
-    carregarPergunta();
-}
-
-// ==========================================================================
-// CAPTURA DO FORMULÁRIO DE CONTATO
-// ==========================================================================
-document.addEventListener('DOMContentLoaded', () => {
-    carregarPergunta(); // Inicializa o quiz ao carregar o site
-
-    const formulario = document.getElementById('formAgro');
-    formulario.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const nome = document.getElementById('nome').value;
-        alert(`Excelente, ${nome}! Dados processados com sucesso. Obrigado por apoiar o desenvolvimento do agronegócio sustentável.`);
-        this.reset();
-    });
 });
