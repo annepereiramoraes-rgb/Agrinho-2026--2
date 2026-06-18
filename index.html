@@ -11,158 +11,71 @@
     <header>
         <div class="nav-container">
             <div class="logo">Agro<span>Forte</span></div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#producao">Produção</a></li>
-                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
-                    <li><a href="#desafios">Desafios</a></li>
-                    <li><a href="#calculadora">Simulador</a></li>
-                    <li><a href="#quiz">Quiz</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
+            <ul class="nav-menu">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>
+                <li><a href="#diagnostico">Diagnóstico</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
         </div>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Agro Forte, Futuro Sustentável</h1>
-                <p>Acelerando a transição para uma agricultura de alto rendimento com impacto ambiental zero através da tecnologia.</p>
-                <a href="#calculadora" class="btn-interativo">Simular Meu Impacto</a>
-            </div>
-        </section>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Produtividade e Inteligência no Campo</h1>
+            <p>Gerencie seus recursos, calcule insumos e monitore sua lavoura com precisão digital.</p>
+            <a href="#calculadora" class="btn-interativo">Iniciar Simulação</a>
+        </div>
+    </section>
 
-        <section id="producao" class="secao-padrao">
-            <h2>Produção Agrícola e Macroeconomia</h2>
-            <p class="subtitulo-secao">O agronegócio moderno opera na fronteira da ciência de dados e da eficiência biológica.</p>
-            <div class="grid-conteudo">
-                <div class="card">
-                    <div class="destaque-dado">30%</div>
-                    <h3>PIB Global & Exportações</h3>
-                    <p>O setor representa uma das maiores fatias da economia de países em desenvolvimento, garantindo a segurança alimentar global e a estabilidade cambial por meio de superávits comerciais complexos.</p>
-                </div>
-                <div class="card">
-                    <div class="destaque-dado">IoT</div>
-                    <h3>Agricultura de Precisão</h3>
-                    <p>Sensores de telemetria em tratores autônomos cruzam dados com satélites para mapear a compactação do solo e aplicar micronutrientes com variação em milímetros, eliminando o superaquecimento da terra e o desperdício.</p>
-                </div>
-                <div class="card">
-                    <div class="destaque-dado">M2M</div>
-                    <h3>Drones e Visão Computacional</h3>
-                    <p>VANTs (Veículos Aéreos Não Tripulados) equipados com câmeras multiespectrais cruzam as lavouras aplicando algoritmos de IA para detectar estresse hídrico e pragas antes mesmo que sejam visíveis ao olho humano.</p>
-                </div>
+    <section id="dashboard" class="secao-padrao">
+        <h2>Painel de Monitoramento</h2>
+        <p class="subtitulo-secao">Dados em tempo real da sua propriedade</p>
+        <div class="grid-conteudo">
+            <div class="card">
+                <h3>Umidade do Solo</h3>
+                <div class="destaque-dado">68%</div>
+                <p>Status: Ideal para plantio</p>
             </div>
-        </section>
-
-        <section id="sustentabilidade" class="secao-padrao bg-alternativo">
-            <h2>Ciência da Sustentabilidade</h2>
-            <div class="grid-conteudo">
-                <div class="card">
-                    <h3>Sistemas ILPF</h3>
-                    <p>A Integração Lavoura-Pecuária-Floresta cria microclimas que diminuem o estresse térmico animal, aumentam a ciclagem de nutrientes profundos e maximizam a produção de biomassa por metro quadrado.</p>
-                </div>
-                <div class="card">
-                    <h3>Dinâmica do Carbono</h3>
-                    <p>O Plantio Direto avançado transforma o solo manejado em um sumidouro ativo de gases de efeito estufa. A palhada deixada atua como um escudo térmico, reduzindo a evaporação e retendo o nitrogênio orgânico.</p>
-                </div>
-                <div class="card">
-                    <h3>Matrizes Energéticas Off-Grid</h3>
-                    <p>Grandes propriedades rurais operam microrredes independentes utilizando geradores movidos a biogás (vindos da codigestão de dejetos) associados a usinas solares flutuantes em canais de irrigação.</p>
-                </div>
+            <div class="card card-alerta">
+                <h3>Previsão de Chuva</h3>
+                <div class="destaque-dado">12mm</div>
+                <p>Alerta: Possibilidade de tempestade isolada</p>
             </div>
-        </section>
-
-        <section id="desafios" class="secao-padrao">
-            <h2>Desafios Globais Críticos</h2>
-            <div class="grid-conteudo">
-                <div class="card card-alerta">
-                    <h3>Escassez Hídrica Severa</h3>
-                    <p>Sistemas tradicionais de irrigação por inundação desperdiçam até 50% da água captada. O uso desenfreado rebaixa lençóis freáticos e acelera processos de salinização do perfil arável do solo.</p>
-                </div>
-                <div class="card card-alerta">
-                    <h3>Pegada de Carbono e Nitrogênio</h3>
-                    <p>A quebra da estrutura natural do solo libera CO₂ estocado há séculos. Além disso, o uso incorreto de fertilizantes sintéticos nitrogenados emite óxido nitroso (N₂O), um gás 300 vezes mais poluente que o gás carbônico.</p>
-                </div>
+            <div class="card">
+                <h3>Área Monitorada</h3>
+                <div class="destaque-dado">450 ha</div>
+                <p>Total de hectares ativos</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="calculadora" class="secao-padrao bg-alternativo">
-            <h2>Simulador de Impacto Tecnológico</h2>
-            <p class="subtitulo-secao">Insira a área da propriedade para calcular a economia de recursos ao migrar do método tradicional para o agro sustentável.</p>
-            <div class="painel-interativo">
+    <section id="calculadora" class="secao-padrao bg-alternativo">
+        <h2>Simulador de Insumos</h2>
+        <p class="subtitulo-secao">Calcule a quantidade recomendada para sua área</p>
+        <div class="painel-interativo">
+            <form id="form-calculadora">
                 <div class="form-group">
-                    <label for="hectares">Área da Propriedade (em Hectares):</label>
-                    <input type="number" id="hectares" min="1" placeholder="Ex: 150">
-                </div>
-                <div class="form-group">
-                    <label for="cultura">Tipo de Cultivo Principal:</label>
-                    <select id="cultura">
-                        <option value="graos">Grãos (Soja/Milho)</option>
-                        <option value="perenes">Cultivos Perenes (Café/Cítricos)</option>
+                    <label for="cultura">Tipo de Cultura:</label>
+                    <select id="cultura" required>
+                        <option value="">Selecione...</option>
+                        <option value="soja">Soja</option>
+                        <option value="milho">Milho</option>
                     </select>
                 </div>
-                <button class="btn-interativo" onclick="calcularImpacto()">Rodar Simulação</button>
-                
-                <div id="resultado-calculo" class="resultado-box hidden">
-                    <h3>Resultados Anuais Estimados:</h3>
-                    <p>💧 <strong>Água Economizada:</strong> <span id="res-agua">0</span> Litros</p>
-                    <p>🌱 <strong>Carbono Sequestrado/Evitado:</strong> <span id="res-carbono">0</span> kg de CO₂e</p>
-                    <p>💰 <strong>Redução de Custos com Insumos:</strong> R$ <span id="res-custo">0</span></p>
+                <div class="form-group">
+                    <label for="hectares">Tamanho da Área (Hectares):</label>
+                    <input type="number" id="hectares" min="1" placeholder="Ex: 50" required>
                 </div>
-            </div>
-        </section>
+                <button type="submit" class="btn-interativo" style="width: 100%;">Calcular Recomendação</button>
+            </form>
 
-        <section id="quiz" class="secao-padrao">
-            <h2>Quiz: Agro Conectado</h2>
-            <div class="painel-interativo" id="quiz-container">
-                <div id="pergunta-bloco">
-                    <h3 id="quiz-pergunta">Carregando pergunta...</h3>
-                    <div id="quiz-opcoes" class="opcoes-container"></div>
-                </div>
-                <div id="quiz-resultado" class="hidden">
-                    <h3>Pontuação Final</h3>
-                    <p id="quiz-placar"></p>
-                    <button class="btn-interativo" onclick="reiniciarQuiz()">Tentar Novamente</button>
-                </div>
+            <div id="resultado" class="resultado-box hidden">
+                <h3>Resultado da Análise</h3>
+                <p id="txt-resultado"></p>
             </div>
-        </section>
-
-        <section id="contato" class="secao-padrao bg-alternativo">
-            <h2>Central de Conscientização</h2>
-            <div class="contato-wrapper">
-                <form id="formAgro">
-                    <div class="form-group">
-                        <label for="nome">Nome Completo:</label>
-                        <input type="text" id="nome" required placeholder="Digite seu nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail Institucional/Pessoal:</label>
-                        <input type="email" id="email" required placeholder="exemplo@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="perfil">Seu Perfil Atual:</label>
-                        <select id="perfil">
-                            <option value="estudante">Estudante / Pesquisador</option>
-                            <option value="produtor">Produtor / Gestor Rural</option>
-                            <option value="profissional">Profissional de TI / Agronomia</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="mensagem">Contribuição Teórica ou Dúvida:</label>
-                        <textarea id="mensagem" placeholder="Escreva suas considerações sobre o futuro sustentável..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar para o Banco de Dados</button>
-                </form>
-                <p class="mensagem-final">"A tecnologia transforma a escassez em abundância programada."</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 AgroForte Avançado. Desenvolvimento Científico e Educacional.</p>
-    </footer>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
