@@ -3,80 +3,744 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroForte - Plataforma Avançada</title>
+    <meta name="description" content="Agro Forte, Futuro Sustentável - Conheça como o agronegócio brasileiro equilibra produção e preservação ambiental">
+    <meta name="keywords" content="agronegócio, sustentabilidade, agricultura, meio ambiente, tecnologia agrícola">
+    <meta property="og:title" content="Agro Forte, Futuro Sustentável">
+    <meta property="og:description" content="Equilíbrio entre Produção e Meio Ambiente no Agronegócio Brasileiro">
+    <meta property="og:type" content="website">
+    
+    <title>Agro Forte, Futuro Sustentável</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS Externo -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
 
-    <header>
-        <div class="nav-container">
-            <div class="logo">Agro<span>Forte</span></div>
-            <ul class="nav-menu">
-                <li><a href="#dashboard">Dashboard</a></li>
-                <li><a href="#calculadora">Calculadora</a></li>
-                <li><a href="#diagnostico">Diagnóstico</a></li>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <i class="fas fa-leaf"></i>
+                Agro Forte
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#producao">Produção</a></li>
+                <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                <li><a href="#desafios">Desafios</a></li>
+                <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#galeria">Galeria</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
-        </div>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
 
-    <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Produtividade e Inteligência no Campo</h1>
-            <p>Gerencie seus recursos, calcule insumos e monitore sua lavoura com precisão digital.</p>
-            <a href="#calculadora" class="btn-interativo">Iniciar Simulação</a>
-        </div>
-    </section>
-
-    <section id="dashboard" class="secao-padrao">
-        <h2>Painel de Monitoramento</h2>
-        <p class="subtitulo-secao">Dados em tempo real da sua propriedade</p>
-        <div class="grid-conteudo">
-            <div class="card">
-                <h3>Umidade do Solo</h3>
-                <div class="destaque-dado">68%</div>
-                <p>Status: Ideal para plantio</p>
-            </div>
-            <div class="card card-alerta">
-                <h3>Previsão de Chuva</h3>
-                <div class="destaque-dado">12mm</div>
-                <p>Alerta: Possibilidade de tempestade isolada</p>
-            </div>
-            <div class="card">
-                <h3>Área Monitorada</h3>
-                <div class="destaque-dado">450 ha</div>
-                <p>Total de hectares ativos</p>
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>Equilíbrio entre Produção e Meio Ambiente no Agronegócio Brasileiro</p>
+            <div class="hero-buttons">
+                <a href="#producao" class="btn btn-primary">Conheça o Agro do Futuro</a>
+                <a href="#sustentabilidade" class="btn btn-secondary">Saiba Mais</a>
             </div>
         </div>
     </section>
 
-    <section id="calculadora" class="secao-padrao bg-alternativo">
-        <h2>Simulador de Insumos</h2>
-        <p class="subtitulo-secao">Calcule a quantidade recomendada para sua área</p>
-        <div class="painel-interativo">
-            <form id="form-calculadora">
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card" data-aos="fade-up">
+                <i class="fas fa-chart-line"></i>
+                <div class="stat-number" data-target="23.2">0</div>
+                <div class="stat-label">% do PIB Brasileiro</div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-users"></i>
+                <div class="stat-number" data-target="28.6">0</div>
+                <div class="stat-label">Milhões de Empregos</div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-globe-americas"></i>
+                <div class="stat-number" data-target="153">0</div>
+                <div class="stat-label">Bilhões em Exportações (US$)</div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-utensils"></i>
+                <div class="stat-number" data-target="1">0</div>
+                <div class="stat-label">Bilhão de Pessoas Alimentadas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">O Agronegócio Brasileiro</h2>
+            <p class="section-subtitle" data-aos="fade-up">Conheça a importância do setor para o Brasil e o mundo</p>
+            <div class="intro-content" data-aos="fade-up">
+                <p>
+                    O agronegócio brasileiro é um dos pilares da economia nacional, representando 23,2% do Produto Interno Bruto (PIB) em 2024. Com uma produção que movimenta R$ 3,20 trilhões, o setor não apenas impulsiona o crescimento econômico, mas também desempenha um papel crucial na segurança alimentar global, alimentando mais de 1 bilhão de pessoas em todo o mundo.
+                </p>
+                <p>
+                    No entanto, esse crescimento traz consigo grandes responsabilidades. Como equilibrar a expansão da produção agrícola com a preservação dos recursos naturais? A resposta está na adoção de tecnologias sustentáveis, práticas de conservação e inovação constante. O Brasil tem sido pioneiro no desenvolvimento de soluções que integram produtividade e sustentabilidade, como o Plano ABC+ (Agricultura de Baixa Emissão de Carbono), que estabelece metas ambiciosas para reduzir emissões de gases de efeito estufa até 2030.
+                </p>
+                <p>
+                    Neste site, exploraremos como o agronegócio pode crescer economicamente sem comprometer os recursos naturais das futuras gerações. Descubra as tecnologias, práticas e inovações que estão transformando o campo brasileiro em referência mundial de produção sustentável.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Production Section -->
+    <section class="producao" id="producao">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Produção Agrícola</h2>
+            <p class="section-subtitle" data-aos="fade-up">Tecnologia e inovação impulsionando o campo brasileiro</p>
+
+            <div class="grid-2">
+                <div class="card" data-aos="fade-right">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Crescimento da Produção</h3>
+                    <p>
+                        O agronegócio brasileiro registrou crescimento de 11,7% em 2025, somando R$ 775,3 bilhões apenas na agropecuária. A produção de grãos atingiu recordes históricos, com o Brasil consolidando-se como um dos maiores produtores mundiais de soja, milho e cana-de-açúcar.
+                    </p>
+                    <p>
+                        Esse crescimento é resultado da combinação entre expansão de áreas cultivadas com responsabilidade ambiental e ganhos expressivos de produtividade através da tecnologia.
+                    </p>
+                </div>
+
+                <div class="card" data-aos="fade-left">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Importância Econômica</h3>
+                    <p>
+                        Com exportações superiores a US$ 153 bilhões, o agronegócio é responsável por gerar 28,6 milhões de empregos diretos e indiretos no Brasil. O setor representa a principal fonte de divisas para o país e é fundamental para o equilíbrio da balança comercial.
+                    </p>
+                    <p>
+                        Além disso, o agronegócio impulsiona outros setores da economia, como indústria, serviços e logística, criando um efeito multiplicador em toda a cadeia produtiva.
+                    </p>
+                </div>
+            </div>
+
+            <div class="chart-container" data-aos="fade-up">
+                <h3 style="text-align: center; color: var(--verde-primario); margin-bottom: 1.5rem;">
+                    Evolução da Produção de Grãos no Brasil (2000-2026)
+                </h3>
+                <canvas id="productionChart"></canvas>
+            </div>
+
+            <div class="info-grid" data-aos="fade-up">
+                <div class="info-card">
+                    <i class="fas fa-tractor"></i>
+                    <h3>Agricultura de Precisão</h3>
+                    <p>Uso de GPS, drones e sensores IoT para otimizar o uso de insumos e aumentar a produtividade de forma sustentável.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Máquinas Autônomas</h3>
+                    <p>Tratores e colheitadeiras autônomas que operam 24h com maior precisão e eficiência energética.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Big Data & IA</h3>
+                    <p>Análise de dados em tempo real para tomada de decisões assertivas sobre plantio, manejo e colheita.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Bioinsumos</h3>
+                    <p>Produtos biológicos que substituem ou reduzem o uso de agroquímicos, preservando o meio ambiente.</p>
+                </div>
+            </div>
+
+            <div class="video-container" data-aos="fade-up">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Tecnologia no Campo" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustentabilidade" id="sustentabilidade">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Sustentabilidade no Campo</h2>
+            <p class="section-subtitle" data-aos="fade-up">Práticas que preservam o meio ambiente enquanto produzem alimentos</p>
+
+            <div class="grid-2">
+                <div class="card" data-aos="fade-right">
+                    <i class="fas fa-tree"></i>
+                    <h3>Sistema ILPF</h3>
+                    <p>
+                        A Integração Lavoura-Pecuária-Floresta (ILPF) é uma das principais estratégias de sustentabilidade do agronegócio brasileiro. O Plano ABC+ estabelece a meta de expandir essa tecnologia para 5,5 milhões de hectares até 2030.
+                    </p>
+                    <p>
+                        Este sistema combina diferentes atividades agrícolas na mesma área, promovendo:
+                    </p>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li>Recuperação de pastagens degradadas</li>
+                        <li>Sequestro de carbono no solo</li>
+                        <li>Aumento da biodiversidade</li>
+                        <li>Melhoria da qualidade do solo</li>
+                        <li>Diversificação de renda para o produtor</li>
+                    </ul>
+                </div>
+
+                <div class="card" data-aos="fade-left">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Plantio Direto</h3>
+                    <p>
+                        O plantio direto é uma técnica que mantém a palhada sobre o solo, evitando a erosão e melhorando a retenção de água. O Brasil é referência mundial nesta prática, com mais de 32 milhões de hectares cultivados neste sistema.
+                    </p>
+                    <p>
+                        Benefícios:
+                    </p>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li>Redução da erosão do solo em até 90%</li>
+                        <li>Economia de combustível e mão de obra</li>
+                        <li>Aumento da matéria orgânica</li>
+                        <li>Melhoria da infiltração de água</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-grid" data-aos="fade-up">
+                <div class="info-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Rotação de Culturas</h3>
+                    <p>Alternância de diferentes culturas na mesma área para melhorar a fertilidade do solo e controlar pragas naturalmente.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-solar-panel"></i>
+                    <h3>Energia Renovável</h3>
+                    <p>Uso de energia solar, biomassa e biogás nas propriedades rurais, reduzindo custos e emissões de carbono.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-tint"></i>
+                    <h3>Gestão Hídrica</h3>
+                    <p>Sistemas de irrigação eficientes e preservação de nascentes para uso racional da água.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Economia Circular</h3>
+                    <p>Reaproveitamento de resíduos agrícolas e pecuários para geração de energia e fertilizantes orgânicos.</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 3rem;" data-aos="fade-up">
+                <h3 style="text-align: center; color: var(--verde-primario); margin-bottom: 1.5rem;">
+                    Metas do Plano ABC+ para 2030
+                </h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-chart-area"></i>
+                        <h3>30 milhões de ha</h3>
+                        <p>Recuperação de pastagens degradadas</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-tree"></i>
+                        <h3>5,5 milhões de ha</h3>
+                        <p>Sistemas de integração lavoura-pecuária-floresta</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-leaf"></i>
+                        <h3>4,2 milhões de ha</h3>
+                        <p>Plantio direto</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-wind"></i>
+                        <h3>72 milhões de ha</h3>
+                        <p>Total de área com tecnologias sustentáveis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="desafios" id="desafios">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Desafios Ambientais</h2>
+            <p class="section-subtitle" data-aos="fade-up">Compreender os problemas é o primeiro passo para solucioná-los</p>
+
+            <div class="grid-2">
+                <div class="card" data-aos="fade-right">
+                    <i class="fas fa-exclamation-triangle" style="color: var(--laranja);"></i>
+                    <h3>Desmatamento</h3>
+                    <p>
+                        Embora o Brasil tenha reduzido significativamente as taxas de desmatamento nas últimas décadas, o combate ao desmatamento ilegal continua sendo um desafio. O agronegócio responsável compromete-se com a preservação da vegetação nativa e o cumprimento do Código Florestal.
+                    </p>
+                </div>
+
+                <div class="card" data-aos="fade-left">
+                    <i class="fas fa-tint" style="color: var(--azul);"></i>
+                    <h3>Uso da Água</h3>
+                    <p>
+                        A agricultura é responsável por cerca de 70% do consumo de água doce no mundo. O desafio é produzir mais alimentos com menos água, através de tecnologias de irrigação eficientes e manejo adequado do solo.
+                    </p>
+                </div>
+
+                <div class="card" data-aos="fade-right">
+                    <i class="fas fa-cloud" style="color: var(--cinza-medio);"></i>
+                    <h3>Emissões de GEE</h3>
+                    <p>
+                        A agropecuária responde por parte das emissões de gases de efeito estufa. O Brasil tem trabalhado para reduzir essas emissões através de práticas como ILPF, recuperação de pastagens e tratamento de dejetos animais.
+                    </p>
+                </div>
+
+                <div class="card" data-aos="fade-left">
+                    <i class="fas fa-vial" style="color: var(--marrom);"></i>
+                    <h3>Contaminação do Solo</h3>
+                    <p>
+                        O uso excessivo de agroquímicos pode contaminar o solo e os recursos hídricos. A solução está na agricultura de precisão, bioinsumos e manejo integrado de pragas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline" data-aos="fade-up">
+                <h3 style="text-align: center; color: var(--verde-primario); margin-bottom: 2rem;">
+                    Projeções e Metas
+                </h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">2030</div>
+                    <h4>Meta de Neutralidade de Carbono</h4>
+                    <p>Implementação de 72 milhões de hectares com tecnologias de baixa emissão de carbono através do Plano ABC+.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2050</div>
+                    <h4>Agricultura Regenerativa em Escala</h4>
+                    <p>Consolidação de sistemas produtivos que regeneram o solo, aumentam a biodiversidade e sequestram carbono.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solucoes" id="solucoes">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Soluções e Inovações</h2>
+            <p class="section-subtitle" data-aos="fade-up">Tecnologias que estão transformando o agronegócio</p>
+
+            <div class="info-grid" data-aos="fade-up">
+                <div class="card">
+                    <i class="fas fa-dna"></i>
+                    <h3>CRISPR e Edição Genética</h3>
+                    <p>Desenvolvimento de culturas mais resistentes a pragas e secas, reduzindo a necessidade de agroquímicos e água.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-link"></i>
+                    <h3>Blockchain</h3>
+                    <p>Rastreabilidade completa da cadeia produtiva, garantindo transparência e certificação de práticas sustentáveis.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Inteligência Artificial</h3>
+                    <p>Algoritmos que preveem pragas, otimizam colheitas e recomendam manejo personalizado para cada talhão.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Nanotecnologia</h3>
+                    <p>Nanopartículas para liberação controlada de fertilizantes e defensivos, reduzindo desperdícios.</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 3rem;" data-aos="fade-up">
+                <h3 style="text-align: center; color: var(--verde-primario); margin-bottom: 1.5rem;">
+                    Agricultura Regenerativa
+                </h3>
+                <p style="text-align: center; margin-bottom: 2rem;">
+                    Vai além da sustentabilidade: regenera o solo, aumenta a biodiversidade e sequestra carbono da atmosfera.
+                </p>
+                <div class="grid-2">
+                    <div>
+                        <h4 style="color: var(--verde-primario); margin-bottom: 1rem;">Princípios:</h4>
+                        <ul style="margin-left: 1.5rem;">
+                            <li>Minimizar o revolvimento do solo</li>
+                            <li>Manter cobertura vegetal permanente</li>
+                            <li>Diversificar culturas</li>
+                            <li>Integrar animais</li>
+                            <li>Preservar áreas naturais</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--verde-primario); margin-bottom: 1rem;">Benefícios:</h4>
+                        <ul style="margin-left: 1.5rem;">
+                            <li>Aumento da matéria orgânica do solo</li>
+                            <li>Melhoria da retenção de água</li>
+                            <li>Sequestro de carbono</li>
+                            <li>Aumento da biodiversidade</li>
+                            <li>Redução de custos com insumos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="galeria" id="galeria">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Galeria Interativa</h2>
+            <p class="section-subtitle" data-aos="fade-up">Conheça imagens do agronegócio sustentável</p>
+
+            <div class="gallery-filters" data-aos="fade-up">
+                <button class="filter-btn active" onclick="filterGallery('all')">Todos</button>
+                <button class="filter-btn" onclick="filterGallery('tecnologia')">Tecnologia</button>
+                <button class="filter-btn" onclick="filterGallery('sustentabilidade')">Sustentabilidade</button>
+                <button class="filter-btn" onclick="filterGallery('producao')">Produção</button>
+                <button class="filter-btn" onclick="filterGallery('natureza')">Natureza</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item" data-category="tecnologia" data-aos="fade-up" 
+                     data-img="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=1200"
+                     data-title="Drones na Agricultura"
+                     data-desc="Tecnologia de ponta monitorando lavouras em tempo real">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=600" alt="Drones na agricultura" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Drones na Agricultura</h4>
+                        <p>Monitoramento preciso</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="sustentabilidade" data-aos="fade-up"
+                     data-img="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200"
+                     data-title="Sistema ILPF"
+                     data-desc="Integração Lavoura-Pecuária-Floresta em ação">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600" alt="Sistema ILPF" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Sistema ILPF</h4>
+                        <p>Integração sustentável</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="tecnologia" data-aos="fade-up"
+                     data-img="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200"
+                     data-title="Energia Solar no Campo"
+                     data-desc="Painéis solares gerando energia limpa para propriedades rurais">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600" alt="Energia solar" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Energia Solar</h4>
+                        <p>Energia renovável</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="producao" data-aos="fade-up"
+                     data-img="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200"
+                     data-title="Colheita Mecanizada"
+                     data-desc="Tecnologia e eficiência na colheita de grãos">
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600" alt="Colheita mecanizada" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Colheita Mecanizada</h4>
+                        <p>Alta produtividade</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="natureza" data-aos="fade-up"
+                     data-img="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200"
+                     data-title="Preservação de Nascentes"
+                     data-desc="Proteção dos recursos hídricos nas propriedades rurais">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600" alt="Preservação de nascentes" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Preservação de Nascentes</h4>
+                        <p>Conservação da água</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="sustentabilidade" data-aos="fade-up"
+                     data-img="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=1200"
+                     data-title="Produção de Bioinsumos"
+                     data-desc="Alternativas biológicas aos agroquímicos convencionais">
+                    <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600" alt="Bioinsumos" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Bioinsumos</h4>
+                        <p>Agricultura biológica</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</span>
+        <span class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</span>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    </div>
+
+    <!-- Map Section -->
+    <section class="mapa" id="mapa">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Mapa Agrícola Interativo</h2>
+            <p class="section-subtitle" data-aos="fade-up">Distribuição da produção agrícola pelo Brasil</p>
+
+            <div class="map-filters" data-aos="fade-up">
+                <select id="cultureFilter" onchange="filterMap()">
+                    <option value="all">Todas as Culturas</option>
+                    <option value="soja">Soja</option>
+                    <option value="milho">Milho</option>
+                    <option value="cana">Cana-de-açúcar</option>
+                    <option value="cafe">Café</option>
+                </select>
+                <select id="stateFilter" onchange="filterMap()">
+                    <option value="all">Todos os Estados</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="PR">Paraná</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="MG">Minas Gerais</option>
+                </select>
+            </div>
+
+            <div id="map" data-aos="fade-up"></div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Calculadora de Impacto Ambiental</h2>
+            <p class="section-subtitle" data-aos="fade-up">Calcule sua pegada de carbono alimentar</p>
+
+            <div class="calc-container" data-aos="fade-up">
                 <div class="form-group">
-                    <label for="cultura">Tipo de Cultura:</label>
-                    <select id="cultura" required>
-                        <option value="">Selecione...</option>
-                        <option value="soja">Soja</option>
-                        <option value="milho">Milho</option>
+                    <label for="carneConsumo">Consumo de carne bovina (kg/semana):</label>
+                    <input type="number" id="carneConsumo" min="0" step="0.1" placeholder="Ex: 2.5">
+                </div>
+
+                <div class="form-group">
+                    <label for="desperdicio">Desperdício de alimentos (kg/semana):</label>
+                    <input type="number" id="desperdicio" min="0" step="0.1" placeholder="Ex: 1.0">
+                </div>
+
+                <div class="form-group">
+                    <label for="distancia">Distância média dos alimentos:</label>
+                    <select id="distancia">
+                        <option value="local">Local (até 100km)</option>
+                        <option value="nacional" selected>Nacional (até 1000km)</option>
+                        <option value="internacional">Internacional (mais de 1000km)</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="hectares">Tamanho da Área (Hectares):</label>
-                    <input type="number" id="hectares" min="1" placeholder="Ex: 50" required>
-                </div>
-                <button type="submit" class="btn-interativo" style="width: 100%;">Calcular Recomendação</button>
-            </form>
 
-            <div id="resultado" class="resultado-box hidden">
-                <h3>Resultado da Análise</h3>
-                <p id="txt-resultado"></p>
+                <button class="btn btn-primary" onclick="calculateImpact()" style="width: 100%;">
+                    Calcular Impacto
+                </button>
+
+                <div class="calc-result" id="calcResult">
+                    <h3 style="text-align: center; color: var(--verde-primario); margin-bottom: 1rem;">
+                        Sua Pegada de Carbono Anual
+                    </h3>
+                    <div class="result-number" id="resultCO2">0 kg CO₂</div>
+                    <p style="text-align: center; margin-bottom: 1rem;">
+                        São necessárias aproximadamente <strong id="resultTrees">0</strong> árvores para compensar 
+                        essa emissão em um ano.
+                    </p>
+                    <div style="background: var(--branco); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                        <p><strong>Comparação:</strong> A média nacional é de 2.500 kg CO₂/ano por pessoa.</p>
+                        <p id="comparisonText"></p>
+                    </div>
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: #e8f5e9; border-radius: 8px;">
+                        <h4 style="color: var(--verde-primario); margin-bottom: 0.5rem;">
+                            <i class="fas fa-lightbulb"></i> Dicas Personalizadas:
+                        </h4>
+                        <ul id="tipsList" style="margin-left: 1.5rem;">
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Quiz Section -->
+    <section class="quiz" id="quiz">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Quiz de Sustentabilidade</h2>
+            <p class="section-subtitle" data-aos="fade-up">Teste seus conhecimentos sobre agro sustentável</p>
+
+            <div class="quiz-container" data-aos="fade-up">
+                <div class="quiz-levels" id="quizLevels">
+                    <button class="level-btn active" onclick="startQuiz('iniciante')">
+                        🌱 Iniciante
+                    </button>
+                    <button class="level-btn" onclick="startQuiz('intermediario')">
+                        🌿 Intermediário
+                    </button>
+                    <button class="level-btn" onclick="startQuiz('avancado')">
+                        🌳 Avançado
+                    </button>
+                </div>
+
+                <div class="quiz-progress" id="quizProgress" style="display: none;">
+                    <div class="quiz-progress-bar" id="progressBarQuiz"></div>
+                </div>
+
+                <div id="quizQuestions">
+                    <!-- Questions will be inserted here by JavaScript -->
+                </div>
+
+                <div class="quiz-result" id="quizResult">
+                    <div class="badge" id="quizBadge">🌱</div>
+                    <h3 id="quizTitle">Quiz Completo!</h3>
+                    <p id="quizScore">Você acertou X de Y questões</p>
+                    <p id="quizMessage"></p>
+                    <button class="btn btn-primary" onclick="restartQuiz()" style="margin-top: 1.5rem;">
+                        Refazer Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contato">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Entre em Contato</h2>
+            <p class="section-subtitle" data-aos="fade-up">Tem dúvidas ou quer saber mais? Fale conosco!</p>
+
+            <div class="contact-form" data-aos="fade-up">
+                <div class="form-message" id="formMessage"></div>
+                
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome completo *</label>
+                        <input type="text" id="nome" name="nome" required minlength="3">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assunto">Assunto *</label>
+                        <select id="assunto" name="assunto" required>
+                            <option value="">Selecione...</option>
+                            <option value="duvida">Dúvida</option>
+                            <option value="parceria">Parceria</option>
+                            <option value="imprensa">Imprensa</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem *</label>
+                        <input type="text" id="mensagem" name="mensagem" required minlength="10" 
+                               style="min-height: 120px;">
+                    </div>
+
+                    <div class="form-group" style="display: flex; align-items: start; gap: 0.5rem;">
+                        <input type="checkbox" id="newsletter" name="newsletter" style="width: auto; margin-top: 0.3rem;">
+                        <label for="newsletter" style="margin: 0; font-weight: normal;">
+                            Quero receber newsletter com novidades sobre sustentabilidade no agro
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+                <h3 style="color: var(--verde-primario); margin-bottom: 1rem;">
+                    Juntos podemos construir um futuro mais sustentável!
+                </h3>
+                <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+                    O agronegócio brasileiro tem o compromisso de produzir alimentos de forma 
+                    responsável, preservando os recursos naturais para as futuras gerações.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Agro Forte</h3>
+                <p>Educando e inspirando para um agronegócio mais sustentável e responsável.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="#producao">Produção Agrícola</a></li>
+                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                    <li><a href="#desafios">Desafios Ambientais</a></li>
+                    <li><a href="#solucoes">Soluções</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> contato@agroforte.com.br</li>
+                    <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
+                    <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP - Brasil</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Fontes de Pesquisa</h3>
+                <ul>
+                    <li><a href="https://www.embrapa.br" target="_blank">Embrapa</a></li>
+                    <li><a href="https://www.gov.br/mapa" target="_blank">MAPA</a></li>
+                    <li><a href="https://www.ibge.gov.br" target="_blank">IBGE</a></li>
+                    <li><a href="https://www.fao.org" target="_blank">FAO</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Agro Forte - Futuro Sustentável. Todos os direitos reservados.</p>
+            <p style="margin-top: 0.5rem;">
+                <a href="#" style="color: var(--amarelo);">Política de Privacidade</a> | 
+                <a href="#" style="color: var(--amarelo);">Termos de Uso</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts Externos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- JavaScript Externo -->
     <script src="script.js"></script>
 </body>
 </html>
